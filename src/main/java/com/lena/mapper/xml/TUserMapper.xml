@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lena.mapper.TUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lena.entity.TUser">
+        <id column="id" property="id" />
+        <result column="sys_user_name" property="sysUserName" />
+        <result column="sys_user_pwd" property="sysUserPwd" />
+        <result column="role_id" property="roleId" />
+        <result column="user_phone" property="userPhone" />
+        <result column="reg_time" property="regTime" />
+        <result column="user_status" property="userStatus" />
+        <result column="user_email" property="userEmail" />
+        <result column="user_dept" property="userDept" />
+    </resultMap>
+
+</mapper>
