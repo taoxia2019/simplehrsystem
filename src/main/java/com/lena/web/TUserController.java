@@ -11,10 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
 @Controller
-@RequestMapping("/tUser")
+@RequestMapping("/user")
 public class TUserController {
     @Autowired
     ITUserService itUserService;
+
+    @RequestMapping("/login")
+    public String login(String username,String password){
+
+        System.out.println(username);
+        return "index";
+    }
 
     @RequestMapping("/registpage")
     public String toRegist(){

@@ -45,7 +45,7 @@ public class MySecurityconfig extends WebSecurityConfigurerAdapter{
         //super.configure(http);
         //设置对应资源的访问权限(角色)
         http.authorizeRequests()
-                .antMatchers().permitAll()
+                .antMatchers("/user/login","/login").permitAll()
                 .antMatchers("/","/tUser/regist","/tUser/registpage").permitAll()
                 .antMatchers("/userlogin").permitAll();
               /*  .antMatchers("/level1/**").hasRole("P")
@@ -55,7 +55,7 @@ public class MySecurityconfig extends WebSecurityConfigurerAdapter{
         // access返回 TRUE 匹配成功，获得权限
       /* http.authorizeRequests().anyRequest().access("@rbacServiceImpl.hasPermission(request,authentication)");*/
         //开启登录功能
-        http.formLogin().loginPage("/userlogin");
+        http.formLogin().loginPage("/login");
 
         //1./login到登录页( 默认的登录页)
        // 2定制登录页面的方法loginPage("/userlogin")方法中的参数（""）中填写指定的页面

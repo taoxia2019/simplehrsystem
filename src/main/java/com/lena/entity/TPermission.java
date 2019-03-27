@@ -9,11 +9,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lena
- * @since 2019-03-26
+ * @since 2019-03-27
  */
 @TableName("t_permission")
 public class TPermission extends Model<TPermission> {
@@ -39,10 +39,9 @@ public class TPermission extends Model<TPermission> {
      */
     private String url;
     /**
-     * 添加时间
+     * 图片
      */
-    @TableField("create_time")
-    private String createTime;
+    private String icon;
     /**
      * 顺序码
      */
@@ -52,6 +51,10 @@ public class TPermission extends Model<TPermission> {
      */
     @TableField("del_flag")
     private Integer delFlag;
+    /**
+     * 是否展开
+     */
+    private Integer spread;
 
 
     public Integer getId() {
@@ -94,12 +97,12 @@ public class TPermission extends Model<TPermission> {
         this.url = url;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     public Integer getOrder() {
@@ -118,6 +121,14 @@ public class TPermission extends Model<TPermission> {
         this.delFlag = delFlag;
     }
 
+    public Integer getSpread() {
+        return spread;
+    }
+
+    public void setSpread(Integer spread) {
+        this.spread = spread;
+    }
+
     @Override
     protected Serializable pkVal() {
         return this.id;
@@ -126,14 +137,15 @@ public class TPermission extends Model<TPermission> {
     @Override
     public String toString() {
         return "TPermission{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", pid=" + pid +
-        ", descpt=" + descpt +
-        ", url=" + url +
-        ", createTime=" + createTime +
-        ", order=" + order +
-        ", delFlag=" + delFlag +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", pid=" + pid +
+                ", descpt=" + descpt +
+                ", url=" + url +
+                ", icon=" + icon +
+                ", order=" + order +
+                ", delFlag=" + delFlag +
+                ", spread=" + spread +
+                "}";
     }
 }
