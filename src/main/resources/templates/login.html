@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!--head部分-->
-<head th:include="layout :: htmlhead" th:with="title='后台管理'">
+<head th:fragment="htmlhead">
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="renderer" content="webkit" />
+
+    <title>管理系统</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css"></link>
+    <script src="/layui/layui.js"></script>
+
 </head>
 <style>
     body{
@@ -10,11 +20,11 @@
         background-attachment: fixed;
     }
 </style>
-<body background="images\bg.jpg" >
+<body >
 <div class="layui-container" style="height: 100%">
 
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 6%">
-        <legend style="margin-left: 40%"><span style="font-weight: bold;font-size:22px;">海韵后台管理系统</span></legend>
+        <legend style="margin-left: 40%"><span style="font-weight: bold;font-size:22px;">简单人力资源管理</span></legend>
     </fieldset>
 
     <div class="layui-row">
@@ -25,7 +35,7 @@
         </div>
         <div class="layui-col-xs6">
             <div class="grid-demo">
-                <form id="useLogin" class="layui-form" action="">
+                <form id="useLogin" class="layui-form" th:action="@{/user/login}">
                     <div class="layui-form-item">
                         <!--admin -- admin alice--123456-->
                         <label class="layui-form-label">用户名</label>
@@ -56,6 +66,16 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" >
+    layui.use('form', function(){
+        var form = layui.form;
+    //登录按钮
+    form.on("submit(login)",function(data){
+
+            window.location.href = "/user/login";
+
+        return false;
+    })
+</script>
 </body>
 </html>
