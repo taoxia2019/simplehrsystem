@@ -33,7 +33,12 @@ public class TUserController {
         tUser.setSysUserPwd(new BCryptPasswordEncoder().encode(tUser.getSysUserPwd()));
         itUserService.insert(tUser);
         return "/login";
-
+    }
+    //用户管理页面
+    @RequestMapping("/userManage")
+    public String getusermanagepage(){
+        System.out.println("测试是否连接user页面");
+        return "/user/userlist";
     }
 }
 

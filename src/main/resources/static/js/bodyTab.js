@@ -26,6 +26,7 @@ layui.define(["element","jquery"],function(exports){
         }
         var ulHtml = '';
         for(var i=0;i<data.length;i++){
+
             if(data[i].spread || data[i].spread == undefined){
                 ulHtml += '<li class="layui-nav-item layui-nav-itemed">';
             }else{
@@ -83,7 +84,7 @@ layui.define(["element","jquery"],function(exports){
 	Tab.prototype.render = function() {
 		//显示左侧菜单
 		var _this = this;
-		$(".navBar ul").html('<li class="layui-nav-item layui-this"><a data-url="page/main.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a></li>').append(_this.navBar(dataStr)).height($(window).height()-210);
+		$(".navBar ul").html('<li class="layui-nav-item layui-this"><a data-url="page/main.html"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a></li>').append(_this.navBar(dataStr)).height($(window).height()-210);
 		element.init();  //初始化页面元素
 		$(window).resize(function(){
 			$(".navBar").height($(window).height()-210);
@@ -359,7 +360,7 @@ layui.define(["element","jquery"],function(exports){
 					}
 				}
 			})
-		}else if($("#top_tabs li.layui-this cite").text()=="后台首页" && $("#top_tabs li").length>1){
+		}else if($("#top_tabs li.layui-this cite").text()=="首页" && $("#top_tabs li").length>1){
 			$("#top_tabs li").each(function(){
 				if($(this).attr("lay-id") != '' && !$(this).hasClass("layui-this")){
 					element.tabDelete("bodyTab",$(this).attr("lay-id")).init();
