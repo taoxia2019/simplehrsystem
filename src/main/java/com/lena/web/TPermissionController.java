@@ -6,10 +6,12 @@ import com.lena.pojo.TreeNode;
 import com.lena.pojo.TreeNodeBulder;
 import com.lena.service.ITPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sun.reflect.generics.tree.Tree;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class TPermissionController {
 
     @RequestMapping("/loadIndexTreeMeuns")
     @ResponseBody
-    public List<TreeNode> loadIndexTreeMeuns(TPermission tPermission, HttpSession session){
+    public List<TreeNode> loadIndexTreeMeuns(TPermission tPermission, HttpSession session, Model model){
 
         List<TreeNode> nodes=new ArrayList<>();
         List<TPermission> permissions=itPermissionService.selectList(null);
@@ -42,7 +44,8 @@ public class TPermissionController {
             nodes.add(new TreeNode(p.getId(),p.getPid(),p.getName(),p.getUrl(),p.getIcon(),spread));
         }
         System.out.println(nodes);
-        return TreeNodeBulder.build(nodes,1);
+
+        return  TreeNodeBulder.build(nodes, 0);
     }
 
 
